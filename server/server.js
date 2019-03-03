@@ -9,6 +9,7 @@ require("dotenv").config();
 const app = express();
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "../views"));
+app.use(express.static(path.join(__dirname, "../public")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 const Rekognition = require("node-rekognition");
@@ -18,8 +19,11 @@ const AWSParameters = {
   "region": "us-west-2"
 }
 const rekognition = new Rekognition(AWSParameters);
+app.get("/home", (req, res) => {
+  res.render("hackForHumanity.hbs");
+})
 app.get("/", (req, res) => {
-  res.render("index.hbs");
+  res.render("results.hbs");
 })
 app.post("/", upload.single("image"), (req, res) => {
   rekognition.detectLabels(fs.readFileSync(req.file.path))
@@ -109,12 +113,12 @@ app.post("/", upload.single("image"), (req, res) => {
       })
     })
     if (req.body.categories == category) {
-      res.render("index.hbs", {
+      res.render("results.hbs", {
         result: "Correct"
       });
     }
     else {
-      res.render("index.hbs", {
+      res.render("results.hbs", {
         result: "Incorrect"
       });
     }
