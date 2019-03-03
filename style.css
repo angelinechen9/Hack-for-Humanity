@@ -1,0 +1,158 @@
+
+.flip-container {
+	perspective: 1000px;
+  grid-row: auto ;
+}
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(-180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 320px;
+	height: 320px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 1s;
+	transform-style: preserve-3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+  position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(-180deg);
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.navbar {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+	z-index: 10000;
+}
+
+.navbar-brand{
+	font-size: 30px;
+	font-family: "Tahoma";
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+h2{
+	font-size: 50px;
+	font-family: "Georgia";
+	font-weight: bolder;
+	text-decoration-color: light;
+
+}
+
+h4{
+	font-size: 20px;
+	text-align: center;
+	transform: translateY(-150%);
+	text-decoration-color: light;
+}
+.flex-item {
+    width: 100px;
+    height: 200px;
+    border: 1px black solid;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0;
+  height: 50%
+  width: 50%;
+}
+
+.button{
+
+transform: translateY(-96%);
+ width:100%;
+ font-size: 30px;
+
+ background-color: #ab6c94;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+
+}
+.button:hover{
+	text-decoration: none;
+	background-color: white;
+  color: black;
+  border: 2px solid #ab6c94;
+}
+div{
+    margin: auto;
+}
+
+body{
+    background-image: url('https://i.warosu.org/data/g/img/0474/39/1428661084318.png');
+    background-size: 100% 50%;
+		margin: 0;
+		padding: 0;
+}
+
+p1{
+		padding-top: 100px;
+    font-size: 60px;
+		font-family: monospace;
+		font-weight: bold;
+		text-align: center;
+		line-height: 250px
+}
+
+h1{
+	padding-top: 100px;
+	font-size: 30px;
+	font-family: sans-serif;
+	font-weight: bold;
+	text-align: center;
+	transform: translateY(180px);
+}
+
+p{
+	margin-bottom: 0px;
+	margin-block-end: 0em;
+	padding: 0;
+	line-height: 50px;
+}
